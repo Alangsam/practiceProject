@@ -1,0 +1,12 @@
+{
+  "name": "practiceProject",
+  "displayName": "practiceProject",
+  "expo": {
+    "name": "practiceProject",
+    "slug": "practiceProject",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
