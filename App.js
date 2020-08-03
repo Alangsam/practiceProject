@@ -13,7 +13,7 @@ export default function App() {
                 <Stack.Screen
                     name="Landing"
                     component={Landing}
-                    // options={{ title: "Landing" }}
+                    options={{ headerShown: false }}
                 />
                 <Stack.Screen name="IpoList" component={IpoList} />
             </Stack.Navigator>

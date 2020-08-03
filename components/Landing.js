@@ -1,8 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function Landing() {
+export default function Landing({ navigation }) {
     return (
         <View>
             <StatusBar barStyle="dark-content" />
@@ -10,7 +12,12 @@ export default function Landing() {
                 <Text style={styles.topText}>Open To View IPOs</Text>
             </View>
             <View style={styles.triangles} />
-            <View style={styles.darkerGreen} />
+            <View style={styles.darkerGreen}>
+                <Button
+                    title="OPEN"
+                    onPress={() => navigation.navigate("IpoList")}
+                />
+            </View>
         </View>
     );
 }

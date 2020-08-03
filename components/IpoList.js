@@ -6,6 +6,8 @@ export default function IpoList() {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" />
+            <Button title=""></Button>
+            <Text style={styles.topText}>{"All  IPOs"}</Text>
         </View>
     );
 }
@@ -15,5 +17,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#20232a",
         alignItems: "center",
         height: "100%",
+    },
+    topText: {
+        color: "white",
+        fontWeight: "bold",
+        fontSize: 35,
     },
 });
