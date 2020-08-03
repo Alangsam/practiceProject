@@ -15,7 +15,11 @@ export default function App() {
                     component={Landing}
                     options={{ headerShown: false }}
                 />
-                <Stack.Screen name="IpoList" component={IpoList} />
+                <Stack.Screen
+                    name="IpoList"
+                    component={IpoList}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
