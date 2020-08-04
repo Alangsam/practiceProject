@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { useNavigation } from "@react-navigation/native";
 
-export default function LineGraphForList(props) {
+export default function LineGraphForIndividual(props) {
     const navigation = useNavigation();
 
     return (
@@ -61,13 +61,22 @@ export default function LineGraphForList(props) {
                 }}
             />
             <View style={styles.label}>
-                <Text style={styles.companyName}>FaceBook</Text>
-                <Button
-                    title={"View More"}
-                    style={styles.viewMoreButton}
-                    onPress={() => navigation.navigate("IpoIndividual")}
-                    color={"white"}
-                ></Button>
+                <Text style={styles.statisticNames}>Current Price</Text>
+                <Text style={styles.statisticsBad}>$142.20 [42%]</Text>
+                <Text style={styles.statisticNames}>
+                    Avg Price at Execution
+                </Text>
+                <Text style={styles.statisticsGood}>$142.00 [51%]</Text>
+                <Text style={styles.statisticNames}>
+                    Number of Impactful Trades Since Open
+                </Text>
+                <Text style={styles.statisticsBad}>12 [29%]</Text>
+                <Text style={styles.statisticNames}>
+                    Avg Time Between Impactful Trades
+                </Text>
+                <Text style={styles.statisticsGood}>00:12:123</Text>
+                <Text style={styles.statisticNames}>Should You Buy?</Text>
+                <Text style={styles.statisticsBad}>NO [41%]</Text>
             </View>
         </View>
     );
@@ -75,15 +84,25 @@ export default function LineGraphForList(props) {
 
 const styles = StyleSheet.create({
     viewMoreButton: {},
-    companyName: {
+    statisticNames: {
         fontSize: 25,
         fontWeight: "bold",
         color: "white",
     },
+    statisticsGood: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "#86c4ba",
+    },
+    statisticsBad: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "#e97171",
+    },
     label: {
         width: "90%",
         flex: 1,
-        flexDirection: "row",
+        flexDirection: "column",
         justifyContent: "space-between",
         paddingTop: 20,
         paddingBottom: 70,

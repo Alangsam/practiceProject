@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import LineGraphForList from "../ui/LineGraphForList";
 import { ScrollView } from "react-native-gesture-handler";
+import { TabActions } from "@react-navigation/native";
 
 export default function IpoList({ navigation }) {
     return (
@@ -14,7 +15,7 @@ export default function IpoList({ navigation }) {
                     <View style={{ width: "33%" }}>
                         <Button
                             title="back"
-                            onPress={() => navigation.navigate("Landing")}
+                            onPress={() => navigation.goBack()}
                             style={styles.backButton}
                         ></Button>
                     </View>
@@ -24,7 +25,7 @@ export default function IpoList({ navigation }) {
                     <View style={{ width: "33%" }} />
                 </View>
                 <View style={styles.graphObjects}>
-                    <LineGraphForList />
+                    <LineGraphForList navigation={navigation} />
                     <LineGraphForList />
                     <LineGraphForList />
                     <LineGraphForList />
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     },
     container: {
         paddingTop: 40,
+        paddingBottom: 55,
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between",
