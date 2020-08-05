@@ -2,39 +2,30 @@ import React from "react";
 import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { useNavigation } from "@react-navigation/native";
+import { format } from "date-fns";
 
 export default function LineGraphForList(props) {
     const navigation = useNavigation();
-
+    let array = [];
+    for (const times of props.labels) {
+        array.push(format(times, "pp"));
+    }
+    console.log(props.labels);
     return (
         <View>
             <LineChart
                 data={{
-                    labels: [
-                        "January",
-                        "February",
-                        "March",
-                        "April",
-                        "May",
-                        "June",
-                    ],
+                    labels: [...array],
                     datasets: [
                         {
-                            data: [
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                            ],
+                            data: [...props.data],
                         },
                     ],
                 }}
                 width={Dimensions.get("window").width * 0.95} // from react-native
-                height={220}
+                height={250}
                 yAxisLabel="$"
-                yAxisSuffix="k"
+                yAxisSuffix=""
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
                     backgroundColor: "#59405c",
@@ -61,7 +52,7 @@ export default function LineGraphForList(props) {
                 }}
             />
             <View style={styles.label}>
-                <Text style={styles.companyName}>FaceBook</Text>
+                <Text style={styles.companyName}>{props.name}</Text>
                 <Button
                     title={"View More"}
                     style={styles.viewMoreButton}

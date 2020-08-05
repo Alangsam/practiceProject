@@ -25,10 +25,46 @@ export default function IpoList({ navigation }) {
                     <View style={{ width: "33%" }} />
                 </View>
                 <View style={styles.graphObjects}>
-                    <LineGraphForList navigation={navigation} />
-                    <LineGraphForList />
-                    <LineGraphForList />
-                    <LineGraphForList />
+                    <LineGraphForList
+                        name={"FaceBook"}
+                        data={[1, 2, 3, 4]}
+                        labels={[
+                            Date.now() - 311000,
+                            Date.now() - 211000,
+                            Date.now() - 111000,
+                            Date.now(),
+                        ]}
+                    />
+                    <LineGraphForList
+                        name={"Twitter"}
+                        data={[1, 2, 3, 4]}
+                        labels={[
+                            Date.now() - 111500,
+                            Date.now() - 111000,
+                            Date.now() - 11500,
+                            Date.now(),
+                        ]}
+                    />
+                    <LineGraphForList
+                        name={"Snap"}
+                        data={[1, 2, 3, 4]}
+                        labels={[
+                            Date.now() - 111500,
+                            Date.now() - 111000,
+                            Date.now() - 11500,
+                            Date.now(),
+                        ]}
+                    />
+                    <LineGraphForList
+                        name={"Instagram"}
+                        data={[1, 2, 3, 4]}
+                        labels={[
+                            Date.now() - 111500,
+                            Date.now() - 111000,
+                            Date.now() - 11500,
+                            Date.now(),
+                        ]}
+                    />
                 </View>
             </ScrollView>
         </View>
