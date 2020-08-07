@@ -14,7 +14,9 @@ export default class IpoList extends Component {
     }
     componentDidMount() {
         axios
-            .get("")
+            .get(
+                "https://raw.githubusercontent.com/Alangsam/Node-scrape/master/companies/one.json"
+            )
             .then((res) => {
                 console.log(res);
             })
