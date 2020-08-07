@@ -1,74 +1,86 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import LineGraphForList from "../ui/LineGraphForList";
 import { ScrollView } from "react-native-gesture-handler";
 import { TabActions } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
-export default function IpoList({ navigation }) {
-    return (
-        <View style={styles.backgroundColor}>
-            <ScrollView>
-                <View style={styles.container}>
-                    <StatusBar barStyle="light-content" />
-                    <View style={{ width: "33%" }}>
-                        <Button
-                            title="back"
-                            onPress={() => navigation.goBack()}
-                            style={styles.backButton}
-                        ></Button>
+export default class IpoList extends Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+        axios
+            .get("")
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    render() {
+        return (
+            <View style={styles.backgroundColor}>
+                <ScrollView>
+                    <View style={styles.container}>
+                        <StatusBar barStyle="light-content" />
+                        <View style={{ width: "33%" }}></View>
+                        <View style={{ width: "33%" }}>
+                            <Text style={styles.topText}>{"All  IPOs"}</Text>
+                        </View>
+                        <View style={{ width: "33%" }} />
                     </View>
-                    <View style={{ width: "33%" }}>
-                        <Text style={styles.topText}>{"All  IPOs"}</Text>
+                    <View style={styles.graphObjects}>
+                        <LineGraphForList
+                            name={"FaceBook"}
+                            data={[1, 2, 3, 4]}
+                            labels={[
+                                Date.now() - 311000,
+                                Date.now() - 211000,
+                                Date.now() - 111000,
+                                Date.now(),
+                            ]}
+                        />
+                        <LineGraphForList
+                            name={"Twitter"}
+                            data={[1, 2, 3, 4]}
+                            labels={[
+                                Date.now() - 111500,
+                                Date.now() - 111000,
+                                Date.now() - 11500,
+                                Date.now(),
+                            ]}
+                        />
+                        <LineGraphForList
+                            name={"Snap"}
+                            data={[1, 2, 3, 4]}
+                            labels={[
+                                Date.now() - 111500,
+                                Date.now() - 111000,
+                                Date.now() - 11500,
+                                Date.now(),
+                            ]}
+                        />
+                        <LineGraphForList
+                            name={"Instagram"}
+                            data={[1, 2, 3, 4]}
+                            labels={[
+                                Date.now() - 111500,
+                                Date.now() - 111000,
+                                Date.now() - 11500,
+                                Date.now(),
+                            ]}
+                        />
                     </View>
-                    <View style={{ width: "33%" }} />
-                </View>
-                <View style={styles.graphObjects}>
-                    <LineGraphForList
-                        name={"FaceBook"}
-                        data={[1, 2, 3, 4]}
-                        labels={[
-                            Date.now() - 311000,
-                            Date.now() - 211000,
-                            Date.now() - 111000,
-                            Date.now(),
-                        ]}
-                    />
-                    <LineGraphForList
-                        name={"Twitter"}
-                        data={[1, 2, 3, 4]}
-                        labels={[
-                            Date.now() - 111500,
-                            Date.now() - 111000,
-                            Date.now() - 11500,
-                            Date.now(),
-                        ]}
-                    />
-                    <LineGraphForList
-                        name={"Snap"}
-                        data={[1, 2, 3, 4]}
-                        labels={[
-                            Date.now() - 111500,
-                            Date.now() - 111000,
-                            Date.now() - 11500,
-                            Date.now(),
-                        ]}
-                    />
-                    <LineGraphForList
-                        name={"Instagram"}
-                        data={[1, 2, 3, 4]}
-                        labels={[
-                            Date.now() - 111500,
-                            Date.now() - 111000,
-                            Date.now() - 11500,
-                            Date.now(),
-                        ]}
-                    />
-                </View>
-            </ScrollView>
-        </View>
-    );
+                </ScrollView>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
